@@ -17,13 +17,13 @@ export class FormComponent implements OnInit {
   public onUpdate: boolean = false;
   public sessionForm: FormGroup | undefined;
   public teachers$ = this.teacherService.all();
-  private id: string | undefined;
+  public id: string | undefined;
 
   constructor(
-    private route: ActivatedRoute,
+    public route: ActivatedRoute,
     private fb: FormBuilder,
     private matSnackBar: MatSnackBar,
-    private sessionApiService: SessionApiService,
+    public sessionApiService: SessionApiService,
     private sessionService: SessionService,
     private teacherService: TeacherService,
     private router: Router
@@ -48,7 +48,7 @@ export class FormComponent implements OnInit {
 
   public submit(): void {
     const session = this.sessionForm?.value as Session;
-
+    
     if (!this.onUpdate) {
       this.sessionApiService
         .create(session)
@@ -60,7 +60,7 @@ export class FormComponent implements OnInit {
     }
   }
 
-  private initForm(session?: Session): void {
+  public initForm(session?: Session): void {
     this.sessionForm = this.fb.group({
       name: [
         session ? session.name : '',
@@ -84,7 +84,7 @@ export class FormComponent implements OnInit {
     });
   }
 
-  private exitPage(message: string): void {
+  public exitPage(message: string): void {
     this.matSnackBar.open(message, 'Close', { duration: 3000 });
     this.router.navigate(['sessions']);
   }
