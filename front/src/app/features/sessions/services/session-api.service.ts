@@ -33,7 +33,7 @@ export class SessionApiService {
     return this.httpClient.put<Session>(`${this.pathService}/${id}`, session);
   }
 
-  public participate(id: string, userId: string): Observable<void> {
+  public participate(id: string, userId: string): Observable<any> {
     return this.httpClient.post<void>(`${this.pathService}/${id}/participate/${userId}`, null);
   }
 
