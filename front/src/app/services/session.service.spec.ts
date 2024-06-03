@@ -30,7 +30,6 @@ describe('SessionService', () => {
         admin: false
       };
 
-      service.logIn(user); 
       const observerSpy = new ObserverSpy<boolean>(); 
       service.$isLogged().subscribe(observerSpy); 
 

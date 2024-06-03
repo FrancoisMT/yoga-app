@@ -112,7 +112,6 @@ describe('FormComponent', () => {
     it('should initialize form when URL does not include "update"', () => {
 
       jest.spyOn(router, 'url', 'get').mockReturnValueOnce('/sessions');
-
       const initFormSpy = jest.spyOn(component, 'initForm');
 
       component.ngOnInit();

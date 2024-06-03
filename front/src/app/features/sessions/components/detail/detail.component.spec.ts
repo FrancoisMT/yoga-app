@@ -92,7 +92,7 @@ describe('DetailComponent', () => {
     // Given
     const sessionId = '1';
     const userId = '1';
-    const mockApiResponse = null; // ou une réponse mockée si nécessaire
+    const mockApiResponse = null; 
     const participateSpy = jest.spyOn(serviceApi, 'participate').mockReturnValue(of(mockApiResponse));
     const fetchSessionSpy = jest.spyOn(component as any, 'fetchSession');
 
