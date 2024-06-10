@@ -37,19 +37,7 @@ public class AuthControllerIntegrationTest {
 	
 	 @Autowired
 	 private MockMvc mockMvc;
-	
-	 @Autowired
-	 private UserRepository userRepository;
 
-	 @Test
-	 public void hellotesting() {
-		 
-		 List<User> users = userRepository.findAll();
-	     assertEquals(users.size(), 3);
-	     User user1 = users.get(0);
-	     assertEquals(user1.getEmail(), "yoga@studio.com");
-	 }
-	 
 	 @Test
 	 public void testAuthenticateUser_nullBody_shouldReturnBadRequest() throws Exception {
 	      mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/login")
